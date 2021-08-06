@@ -2,5 +2,5 @@ package com.project.fragments
 
 interface OnRemoveFragmentButtonClickListener
 {
-    fun onRemoveFragment()
+    fun onRemoveFragmentClicked()
 }

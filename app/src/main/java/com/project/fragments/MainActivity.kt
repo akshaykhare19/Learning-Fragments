@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.FrameLayout
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnRemoveFragmentButtonClickListener {
 
     lateinit var addFragment: Button
 
@@ -16,11 +16,23 @@ class MainActivity : AppCompatActivity() {
         addFragment = findViewById(R.id.add_fragment)
 
         addFragment.setOnClickListener {
-            supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.frame_layout, MyFragment.newInstance(),
-                "MyTag").commit()
+            if(savedInstanceState == null)
+            {
+                supportFragmentManager
+                    .beginTransaction()
+                    .add(R.id.frame_layout, MyFragment.newInstance(),
+                        "MyTag").commit()
+            }
         }
 
+    }
+
+    override fun onRemoveFragmentClicked() {
+
+        val fragment = supportFragmentManager.findFragmentByTag("MyTag")
+        supportFragmentManager
+            .beginTransaction()
+            .remove(fragment!!)
+            .commit()
     }
 }
