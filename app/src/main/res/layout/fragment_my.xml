@@ -5,27 +5,28 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#0A31F4"
+    android:weightSum="2"
     tools:context=".MyFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:text="@string/hello_blank_fragment"
+        android:layout_weight="1.5"
         android:padding="10dp"
-        android:layout_marginBottom="10dp"/>
+        android:layout_margin="10dp"/>
 
     <Button
         android:id="@+id/remove_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/remove_fragment"
-        android:layout_marginTop="10dp"
+        android:layout_weight="0.5"
+        android:layout_margin="10dp"
         android:textSize="20sp"
-        android:padding="10dp"/>
+        android:padding="8dp"/>
 
 
 </LinearLayout>
