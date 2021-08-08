@@ -2,10 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="#0A31F4"
-    android:weightSum="2"
     tools:context=".MyFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -13,8 +12,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1.5"
+        android:layout_height="250dp"
         android:padding="10dp"
         android:layout_margin="10dp"/>
 
@@ -23,7 +21,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/remove_fragment"
-        android:layout_weight="0.5"
         android:layout_margin="10dp"
         android:textSize="20sp"
         android:padding="8dp"/>

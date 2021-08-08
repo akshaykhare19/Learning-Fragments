@@ -7,11 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 
-class MyFragment : Fragment() {
+class MyFragment : Fragment(), ListAdapter.ListItemClicked {
 
 
     private lateinit var caller: OnRemoveFragmentButtonClickListener
@@ -28,7 +29,7 @@ class MyFragment : Fragment() {
 
         val items = arrayOf("New Delhi", "Mumbai", "Bangalore", "Chennai", "Gujarat", "Punjab", "Hyderabad", "Kolkata")
 
-        recyclerView.adapter = ListAdapter(items)
+        recyclerView.adapter = ListAdapter(items, this)
 
         removeButton.setOnClickListener {
 
@@ -48,5 +49,9 @@ class MyFragment : Fragment() {
         {
             return MyFragment()
         }
+    }
+
+    override fun onItemClicked(place: String) {
+        Toast.makeText(activity as MainActivity, place, Toast.LENGTH_SHORT).show()
     }
 }
